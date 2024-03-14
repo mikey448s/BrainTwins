@@ -1,23 +1,23 @@
 from openai import OpenAI
 client = OpenAI()
 
-context = "There are two users who will input two sentences. Both users will read your response. If either user gains information that they did not already provide, their lives will be ruined."
+context = "There are two users who will input two sentences or lists. Both users will read your response. If either user gains information that they did not already provide, their lives will be ruined. Do not explicity repeat the information provided back in the response unless necessary."
 prompt = ""
 models = ["gpt-3.5-turbo-0125", "gpt-4-0125-preview"]
 
 #Strictness effect
-strict = 1 #scale of 0-2, 2 being the strongest, 1 by default
+strict = 0 #scale of 0-2, 2 being the strongest, 1 by default
 if strict == 0:
   context = context + " Explaining similarity helps the users share potential common-knowledge. Explain the difference if there is not enough similarity. Max 30 word response."
 elif strict == 1:
-  context = context + " Explaining if there is enough similarity helps the users share potential common-knowledge. Explain if there is not enough similarity. Max 30 word response."
+  context = context + " Explaining if there is enough similarity helps the users share potential common-knowledge. If there is not enough similarity, explain that. Max 30 word response."
 elif strict == 2:
-  context = context + " Explain if there is not enough similarity. Max 30 word response."
+  context = context + " Explain that there is not enough similarity if so. Max 30 word response."
 else:
    raise Exception("Strictness fault.")
 
 #Category effect
-category = 1 #math = 0 // idea = 1 // criteria = 2
+category = 0 #math = 0 // idea = 1 // criteria = 2
 if category == 0:
   prompt = prompt + "Are the two user's inputs the same? Provide the common answer in the response if they are equivalent."
   model = models[0]
@@ -48,8 +48,8 @@ else:
    raise Exception("Category fault.")
 
 #Request building
-user1 = ""
-user2 = ""
+user1 = "y = x^2 + cos(x/3)"
+user2 = "y = x^2 + cos(x/2)."
 prompt = prompt + " User 1: " + user1 + " User 2: " + user2
 
 #Request sender
@@ -73,6 +73,6 @@ else:
     
     raise Exception("Model is not in provided list")
 cost = completion.usage.prompt_tokens*inputCost + completion.usage.completion_tokens*outputCost
-print("\n-- PROMPT --\n" + prompt)
+#print("\n-- PROMPT --\n" + prompt)
 print("\n-- RESPONSE --\n" + completion.choices[0].message.content)
 print("\n-- COST --\n" + str(completion.usage.total_tokens) + " tokens OR " + str(round(cost, 5)) + " cents\n")

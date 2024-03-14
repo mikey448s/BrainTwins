@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.18.3"
+  },
+  "name": "braintwins",
+  "description": "Generative AI Project that determines whether two statements are equivalent.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikey448s/BrainTwins.git"
+  },
+  "author": "Michael Seng // Crimxon Guillermo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikey448s/BrainTwins/issues"
+  },
+  "homepage": "https://github.com/mikey448s/BrainTwins#readme"
+}
