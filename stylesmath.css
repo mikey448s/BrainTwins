@@ -1,0 +1,61 @@
+/* Style the back link */
+.back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000; /* Ensure the link is above other content */
+}
+
+.back-link:hover {
+    color: #555;
+}
+
+
+
+/* Style the title block */
+.title-block {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title-block h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.title-block p {
+    font-size: 18px;
+    color: #555;
+}
+
+
+
+/* Style the grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Style the grid items */
+.grid-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Style the links inside grid items */
+.grid-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Style the heading and description */
+.grid-item h2 {
+    margin-bottom: 10px;
+}
