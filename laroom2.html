@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Arts Room 2 - Brain Twins</title>
+    <link rel="stylesheet" href="stylesroom1.css"> <!-- Link to external CSS file -->
+    <style>
+        body {
+    background-color: rgb(239, 239, 239);
+}
+         /* CSS for the Title Block */
+         .title-block {
+            text-align: center;
+            margin-bottom: 50px; /* Adjust as needed */
+        }
+
+        .title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        body {
+    color: rgb(169, 169, 169);
+}
+    </style>
+</head>
+<body>
+ 
+
+    <!-- Room 2 Content -->
+    <h1>Welcome to Language Arts Room 2</h1>
+    <p>This is the content of Room 2. Feel free to add your content here!</p>
+
+    
+    <!-- Rest of your webpage content goes here -->
+
+    <!-- ChatGPT Information Checker Title Block -->
+<div class="container">
+    <div class="title-block">
+    <h1 class="title">ChatGPT Information Checker</h1>
+    <p class="subtitle">Check if your information matches with others</p>
+    </div>
+</div>
+   <!-- Navigation Bar -->
+   <nav class="navigation">
+    <ul>
+        <li><a href="language-arts.html">Lobby</a></li>
+        <li><a href="laroom1.html">Room 1</a></li>
+        <li><a href="laroom3.html">Room 3</a></li>
+        <li><a href="laroom4.html">Room 4</a></li>
+    </ul>
+</nav>
+
+<!-- Input Form for User 1 -->
+<label for="user1Input">User 1:</label>
+<textarea id="user1Input" placeholder="Enter your information"></textarea>
+<button onclick="sendMessage('user1Input')">Check Information</button>
+
+<!-- Input Form for User 2 -->
+<label for="user2Input">User 2:</label>
+<textarea id="user2Input" placeholder="Enter your information"></textarea>
+<button onclick="sendMessage('user2Input')">Check Information</button>
+
+
+<!-- Display Result -->
+<div id="result"></div>
+
+<!-- JavaScript for Handling Interaction -->
+<script src="script.js"></script>
+
+</body>
+</html>

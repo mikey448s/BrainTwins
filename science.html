@@ -3,110 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science - Brain Twins</title>
-    <link rel="stylesheet" href="stylessci.css"> <!-- Link to external CSS file -->
-    <style>
-        body {
-    background-color: rgb(239, 239, 239);
-}
-         /* CSS for the Title Block */
-         .title-block {
-            text-align: center;
-            margin-bottom: 50px; /* Adjust as needed */
-        }
-
-        .title {
-            font-size: 36px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: #666;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        textarea {
-            width: 100%;
-            height: 100px;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-
-        #result {
-            margin-top: 20px;
-        }
-
-        body {
-    color: rgb(169, 169, 169);
-}
-    </style>
+    <title>Science Page</title>
+    <link rel="stylesheet" href="styleshistory.css"> <!-- Link to external CSS file -->
 </head>
 <body>
- 
+    <body>
 
-    <!-- Room 2 Content -->
-    <h1>Welcome to Science</h1>
-    <p>This is the content of Science. Feel free to add your content here!</p>
 
-    
-    <!-- Rest of your webpage content goes here -->
+        <a href="frontend.html" class="back-link">← Back to Main Page</a>
 
-    <!-- ChatGPT Information Checker Title Block -->
-<div class="container">
-    <div class="title-block">
-    <h1 class="title">ChatGPT Information Checker</h1>
-    <p class="subtitle">Check if your information matches with others</p>
+        <div class="title-block">
+            <h1>Science Lobby</h1>
+            <p>Explore different rooms where you can compare mathematical concepts.</p>
+        </div>
+
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <a href="scienceroom1.html">
+                <h2>Room 1</h2>
+                <p>Description of Room 1</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="scienceroom2.html">
+                <h2>Room 2</h2>
+                <p>Description of Room 2</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="scienceroom3.html">
+                <h2>Room 3</h2>
+                <p>Description of Room 3</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="scienceroom4.html">
+                <h2>Room 4</h2>
+                <p>Description of Room 4</p>
+            </a>
+        </div>
     </div>
-</div>
-   <!-- Navigation Bar -->
-   <nav class="navigation">
-    <ul>
-        <li><a href="frontend.html">Home</a></li>
-        <a href="generic.html">Just get to putting in info!</a></li>
-        <li><a href="room2.html">Room 2</a></li>
-        <li><a href="room3.html">Room 3</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
-
-<!-- Input Form for User 1 -->
-<label for="user1Input">User 1:</label>
-<textarea id="user1Input" placeholder="Enter your information"></textarea>
-<button onclick="sendMessage('user1Input')">Check Information</button>
-
-<!-- Input Form for User 2 -->
-<label for="user2Input">User 2:</label>
-<textarea id="user2Input" placeholder="Enter your information"></textarea>
-<button onclick="sendMessage('user2Input')">Check Information</button>
-
-
-<!-- Display Result -->
-<div id="result"></div>
-
-<!-- JavaScript for Handling Interaction -->
-<script src="script.js"></script>
-
 </body>
 </html>
