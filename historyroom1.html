@@ -61,7 +61,80 @@
         body {
     color: rgb(169, 169, 169);
 }
-    </style>
+
+  /* Styles for the dots */
+  .dots-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 40px; /* Adjusted height for vertical alignment */
+    padding: 10px; /* Added padding for horizontal alignment */
+  }
+  
+  .dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #777; /* Darker grey outline */
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 1; /* Ensure dots are above the box */
+  }
+  
+  .filled {
+    background-color: #777; /* Darker grey fill */
+  }
+
+  /* Styles for the outlined box */
+  .outlined-box {
+    border: 2px solid #444; /* Dark grey outline */
+    padding: 10px;
+    margin-top: 20px; /* Adjust as needed */
+    width: fit-content;
+    background-color: #444; /* Dark grey complementary color */
+    color: #fff; /* Text color */
+    position: relative; /* Ensure the dots are positioned relative to the box */
+    text-align: center; /* Center the dots horizontally */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow for description */
+  }
+
+  /* Styles for the question mark icon */
+  .info-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -10px; /* Adjust as needed */
+    margin-right: -10px; /* Adjust as needed */
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #fff; /* White background */
+    color: #444; /* Dark grey color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Ensure icon is above the content */
+  }
+
+  /* Styles for the description */
+  .description {
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    background-color: #444; /* Dark grey complementary color */
+    color: #fff; /* Text color */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 2; /* Ensure description is above the content */
+    display: none; /* Hide description by default */
+  }
+  </style>
 </head>
 <body>
  
@@ -90,6 +163,63 @@
     </ul>
 </nav>
 
+
+</div>
+
+<h1>Answer Comparison Meter</h1>
+  
+  <div class="outlined-box" id="outlinedBox">
+    <!-- Question mark icon for description -->
+    <div class="info-icon" onclick="toggleDescription()">?</div>
+
+    <div class="dots-container" id="dotsContainer">
+      <div class="dot" onclick="adjustStrictness(0)" id="dot1"></div>
+      <div class="dot" onclick="adjustStrictness(1)" id="dot2"></div>
+      <div class="dot" onclick="adjustStrictness(2)" id="dot3"></div>
+    </div>
+    <!-- Description of strictness level -->
+    <div class="description" id="description">
+      <p><strong>Strictness Levels:</strong></p>
+      <ul>
+        <li>Level 1: Low strictness</li>
+        <li>Level 2: Medium strictness</li>
+        <li>Level 3: High strictness</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let strictness = 0; // 0 for not strict, 1 for medium strict, 2 for very strict
+
+    function adjustStrictness(dotIndex) {
+      // Update the strictness level based on the clicked dot
+      strictness = dotIndex + 1;
+
+      // Update the dots' appearance
+      updateDots();
+      
+      // Here you can use the strictness value to determine the level of comparison strictness
+      console.log('Strictness level: ', strictness);
+    }
+
+    function updateDots() {
+      // Update the appearance of the dots based on the current strictness level
+      for (let i = 0; i < 3; i++) {
+        let dot = document.getElementById('dot' + (i + 1));
+        if (i < strictness) {
+          dot.classList.add('filled');
+        } else {
+          dot.classList.remove('filled');
+        }
+      }
+    }
+
+    function toggleDescription() {
+      var description = document.getElementById('description');
+      description.style.display = description.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
 <!-- Input Form for User 1 -->
 <label for="user1Input">User 1:</label>
 <textarea id="user1Input" placeholder="Enter your information"></textarea>
@@ -106,6 +236,7 @@
 
 <!-- JavaScript for Handling Interaction -->
 <script src="script.js"></script>
+
 
 </body>
 </html>
