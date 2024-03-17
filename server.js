@@ -1,17 +1,31 @@
 const express = require('express');
+const { spawn } = require('child_process');
+
 const app = express();
-const port = 3000;
+const port = 4000;
 
-// Middleware to parse JSON bodies
-app.use(express.json());
+app.use(express.static('public/html')); // For parsing application/json
+app.use(express.static('public/css')); // For parsing application/json
+app.use(express.static('public')); // For parsing application/json
+app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
-// Serve static files from the 'public' directory (e.g., HTML, CSS, client-side JS)
-app.use(express.static('public'));
+// Endpoint to handle the form submission.
+app.post('/submit', (req, res) => {
+    const { strictness, user1, user2, category } = req.body;
 
-// Importing routes from endpoint.js (assuming it exports a function that takes an app)
-require('./endpoint')(app);
+    const pythonProcess = spawn('python', ['Requests.py', strictness, user1, user2, category]);
 
-// Start the server
+    pythonProcess.stdout.on('data', (data) => {
+        // Capture the output from your Python script
+        res.send(data.toString());
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+        // Log errors if they occur
+        console.error(`stderr: ${data}`);
+    });
+});
+
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server listening at http://localhost:${port}`);
 });
