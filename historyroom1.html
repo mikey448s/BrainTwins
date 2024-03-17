@@ -67,14 +67,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 200px;
-    height: 40px; /* Adjusted height for vertical alignment */
-    padding: 10px; /* Added padding for horizontal alignment */
+    width: 150px;
+    height: 30px; /* Adjusted height for vertical alignment */
+    padding: 5px; /* Added padding for horizontal alignment */
   }
   
   .dot {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     border: 2px solid #777; /* Darker grey outline */
     background-color: transparent;
@@ -98,15 +98,14 @@
     text-align: center; /* Center the dots horizontally */
     border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Hide overflow for description */
+    min-height: 120px; /* Set a minimum height to make space for the description */
   }
 
   /* Styles for the question mark icon */
   .info-icon {
     position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: -10px; /* Adjust as needed */
-    margin-right: -10px; /* Adjust as needed */
+    top: 10px;
+    right: 10px;
     width: 20px;
     height: 20px;
     font-size: 18px;
@@ -122,17 +121,44 @@
 
   /* Styles for the description */
   .description {
-    position: absolute;
-    bottom: -150px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    background-color: #444; /* Dark grey complementary color */
+    position: relative; /* Change to relative */
+    width: 100%; /* Cover the entire outlined box */
+    height: 100%; /* Cover the entire outlined box */
+    background-color: rgba(68, 68, 68, 0.9); /* Dark grey with opacity */
     color: #fff; /* Text color */
     padding: 10px;
-    border-radius: 5px;
-    z-index: 2; /* Ensure description is above the content */
+    border-radius: 10px; /* Adjusted border radius */
+    z-index: 3; /* Ensure description is above the outlined box */
     display: none; /* Hide description by default */
+  }
+
+   /* Styles for the entry boxes */
+   .entry-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    margin: 100px auto;
+    border: 2px solid #000;
+    border-radius: 5px;
+    text-align: center;
+    transition: opacity 0.5s ease; /* Add transition for smooth visibility change */
+  }
+
+  /* Hide entry 2 initially */
+  #entry2 {
+    opacity: 0;
+  }
+
+  /* Styles for the checkmark button */
+  .checkmark-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
   }
   </style>
 </head>
@@ -166,7 +192,7 @@
 
 </div>
 
-<h1>Answer Comparison Meter</h1>
+<h1>Strictness</h1>
   
   <div class="outlined-box" id="outlinedBox">
     <!-- Question mark icon for description -->
@@ -220,15 +246,40 @@
     }
   </script>
 
-<!-- Input Form for User 1 -->
-<label for="user1Input">User 1:</label>
-<textarea id="user1Input" placeholder="Enter your information"></textarea>
-<button onclick="sendMessage('user1Input')">Check Information</button>
+<div class="entry-box" id="entry1">
+    <p>Entry 1:</p>
+    <input type="text" id="textInput" placeholder="Enter your information">
+    <br><br>
+    <button onclick="submitEntry()">✓</button>
+  </div>
 
-<!-- Input Form for User 2 -->
-<label for="user2Input">User 2:</label>
-<textarea id="user2Input" placeholder="Enter your information"></textarea>
-<button onclick="sendMessage('user2Input')">Check Information</button>
+  <div class="entry-box" id="entry2">
+    <p>Entry 2:</p>
+    <input type="text" placeholder="Enter your information">
+    <br><br>
+    <button onclick="submitEntry()">✓</button>
+  </div>
+
+  <script>
+    function submitEntry() {
+  const textInput = document.getElementById('textInput');
+  const entry1 = document.getElementById('entry1');
+  const entry2 = document.getElementById('entry2');
+
+  // Toggle visibility of entry boxes
+  if (entry1.style.opacity === '0') {
+    entry1.style.opacity = '1';
+    entry2.style.opacity = '0';
+  } else {
+    entry1.style.opacity = '0';
+    entry2.style.opacity = '1';
+  }
+
+  // Clear the text input
+  textInput.value = '';
+}
+
+  </script>
 
 
 <!-- Display Result -->
