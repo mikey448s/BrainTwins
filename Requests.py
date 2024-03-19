@@ -1,9 +1,12 @@
 from openai import OpenAI
 import sys
 
-def main(strictness, user1, user2, category):
+def main(user1, user2, strictness, category):
   client = OpenAI()
 
+  strictness = int(strictness)
+  category = int(category)
+  
   context = "There are two users who will input two sentences or lists. Both users will read your response. If either user gains information that they did not already provide, their lives will be ruined. Do not explicity repeat the information provided back in the response unless necessary."
   prompt = ""
   models = ["gpt-3.5-turbo-0125", "gpt-4-0125-preview"]
@@ -81,9 +84,9 @@ def main(strictness, user1, user2, category):
   print("\n-- COST --\n" + str(completion.usage.total_tokens) + " tokens OR " + str(round(cost, 5)) + " cents\n")
 
 if __name__ == "__main__":
-    strictness = sys.argv[1]  # First command line argument
-    user1 = sys.argv[2]       # Second command line argument
-    user2 = sys.argv[3]       # Third command line argument
+    user1 = sys.argv[1]  # First command line argument
+    user2 = sys.argv[2]       # Second command line argument
+    strictness = sys.argv[3]       # Third command line argument
     category = sys.argv[4]    # Fourth command line argument
 
-    main(strictness, user1, user2, category)
+    main(user1, user2, strictness, category)

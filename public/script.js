@@ -1,34 +1,44 @@
 function submitEntry(entryNumber) {
-    // Assuming your inputs and logic are correctly set up as described
-    // Additional implementation to send data to the server goes here
+    const textInput1 = document.getElementById('textInput1').value;
+    const textInput2 = document.getElementById('textInput2').value;
+    const loadingBox = document.getElementById('loadingBox');
+    const resultBox = document.getElementById('resultBox');
 
-    // Prepare the data for sending
-    const strictnessLevel = strictness; // Assuming 'strictness' is correctly updated by your existing code
-    const user1 = document.getElementById('textInput1').value;
-    const user2 = entryNumber === 2 ? document.getElementById('textInput2').value : '';
-    const category = '1'; // This could be dynamic based on the page/lobby
+    if (entryNumber === 1) {
+        // Hide entry 1 and show entry 2
+        document.getElementById('entry1').style.display = 'none';
+        document.getElementById('entry2').style.display = 'block';
+    } else {
+        // Prepare the data for sending
+        const data = { user1: textInput1, user2: textInput2, strictness: 1, category: 1 }; // Example data
 
-    // Only proceed if both inputs are provided for the second entry
-    if (entryNumber === 2) {
-        fetch('/compare', {
+        // Show loading box and hide entry 2
+        loadingBox.style.display = 'block';
+        document.getElementById('entry2').style.display = 'none';
+
+        fetch('/submit', { // Make sure this matches your server endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ strictness: strictnessLevel, user1, user2, category }),
+            body: JSON.stringify(data),
         })
         .then(response => response.json())
         .then(data => {
-            // Handle the response from the server
-            console.log(data); // For example, log it to the console or update the UI accordingly
-            // Update UI based on comparison results
-            const entriesSimilar = data.similarity; // Adapt this based on how your server responds
-            const similaritySpan = document.getElementById('similarity');
-            similaritySpan.textContent = entriesSimilar ? 'similar' : 'not similar';
-            // Show result box, hide loading
-            document.getElementById('loadingBox').style.display = 'none';
-            document.getElementById('resultBox').style.display = 'block';
+            document.getElementById('similarity').textContent = data.similarity; // Directly show Python script's response
+            // Hide loading box and show result box with results
+            loadingBox.style.display = 'none';
+            resultBox.style.display = 'block';
+
+            // Update result message based on the response
+            //document.getElementById('similarity').textContent = data.similarity ? 'similar' : 'not similar';
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            // Hide loading box and show result box with error message
+            loadingBox.style.display = 'none';
+            resultBox.style.display = 'block';
+            document.getElementById('similarity').textContent = 'Error processing request';
+        });
     }
 }
