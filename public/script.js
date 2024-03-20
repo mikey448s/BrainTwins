@@ -42,3 +42,13 @@ function submitEntry(entryNumber) {
         });
     }
 }
+function restartCycle() {
+    const entry1 = document.getElementById('entry1');
+    const entry2 = document.getElementById('entry2');
+    const resultBox = document.getElementById('resultBox');
+
+    // Show entry 1 and hide result box
+    entry1.style.display = 'block';
+    entry2.style.display = 'none'; // Ensure entry 2 is hidden
+    resultBox.style.display = 'none';
+}
