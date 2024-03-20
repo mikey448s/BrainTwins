@@ -129,6 +129,26 @@
             display: block;
             margin: auto; /* Center the image */
         }
+
+         /* CSS for the arrow button */
+         .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 50%; /* Center horizontally */
+            transform: translateX(50%); /* Center horizontally */
+            opacity: 1; /* Initially visible */
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .scroll-to-top.hide {
+            opacity: 0; /* Hide when scrolled */
+        }
+
+        .scroll-to-top img {
+            transform: rotate(180deg); /* Rotate the arrow */
+        }
     </style>
 </head>
 <body>
@@ -162,7 +182,7 @@
             <!-- Text Box -->
             <div class="text-box">
                 <h2>About Our Website</h2>
-                <p>Insert your explanation text here...</p>
+                <p>BrainTwin's goal is allow for collaborative communication between two parties that might not have the same information. Our website utilizes ChatGPT to compare answers of two different entrants to see whether the information they have input to our website similar or different. Based upon strictness and subject matter that the entrants choose the amount of information that the entrants learn from each other will change. Overall the mission of BrainTwins is for people to utilize our website to not reveal too much information. In terms of UGA community usage, BrainTwins is a great way to help allow for cultivating collaboration and cooperation skills while adhereing to the academic dishonesty policy through BrainTwin's ability to limit the amount of information given to each party based on strictness level.</p>
             </div>
     
             <!-- Image Space -->
@@ -170,6 +190,11 @@
                 <img src="your-image.jpg" alt="Image Placeholder">
             </div>
         </div>
+
+        <!-- Scroll to Top Button -->
+    <div id="scrollToTop" class="scroll-to-top" onclick="scrollToTop()">
+        <img src="arrow-up.png" alt="Scroll to Top">
+    </div>
     
         <!-- JavaScript for Handling Interaction -->
         <script src="../script.js"></script>

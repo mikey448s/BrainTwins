@@ -52,3 +52,20 @@ function restartCycle() {
     entry2.style.display = 'none'; // Ensure entry 2 is hidden
     resultBox.style.display = 'none';
 }
+
+window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            var scrollToTopButton = document.getElementById("scrollToTop");
+
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopButton.classList.add("show");
+            } else {
+                scrollToTopButton.classList.remove("show");
+            }
+        }
+
+        function scrollToTop() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
