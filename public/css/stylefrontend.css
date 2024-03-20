@@ -73,7 +73,12 @@
     background-color: #333;
 }
 
-/* Style the navigation links */
+/* CSS for the navigation bar */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
 .navbar a {
     float: left;
     display: block;
@@ -83,14 +88,12 @@
     text-decoration: none;
 }
 
-/* Style the dropdown button */
 .dropdown {
     float: left;
     overflow: hidden;
 }
 
-/* Style the dropdown button */
-.dropbtn {
+.dropdown .dropbtn {
     font-size: 16px;
     border: none;
     outline: none;
@@ -98,10 +101,8 @@
     padding: 14px 20px;
     background-color: inherit;
     font-family: inherit;
-    margin: 0;
 }
 
-/* Style the dropdown content (hidden by default) */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -111,7 +112,6 @@
     z-index: 1;
 }
 
-/* Style the links inside the dropdown */
 .dropdown-content a {
     float: none;
     color: black;
@@ -121,18 +121,33 @@
     text-align: left;
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover {
     background-color: #ddd;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Style the active/current link */
-.active {
-    background-color: #4CAF50;
-    color: white;
+/* CSS for the content section */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 50vh; /* Adjust the height of the content section */
+    padding: 20px;
+}
+
+.text-box {
+    width: 50%;
+}
+
+.image-space {
+    width: 50%;
+    text-align: right;
+}
+
+.image-space img {
+    max-width: 100%;
+    max-height: 100%;
 }

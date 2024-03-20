@@ -6,7 +6,7 @@ def main(user1, user2, strictness, category):
 
   strictness = int(strictness)
   category = int(category)
-  
+
   context = "There are two users who will input two sentences or lists. Both users will read your response. If either user gains information that they did not already provide, their lives will be ruined. Do not explicity repeat the information provided back in the response unless necessary."
   prompt = ""
   models = ["gpt-3.5-turbo-0125", "gpt-4-0125-preview"]
@@ -90,3 +90,4 @@ if __name__ == "__main__":
     category = sys.argv[4]    # Fourth command line argument
 
     main(user1, user2, strictness, category)
+   
