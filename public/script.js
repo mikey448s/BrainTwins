@@ -1,3 +1,39 @@
+// Start with all dots filled, representing a strictness value of 2
+let strictness = 3; // Adjusted to 3 because we're using a 1-based index for ease of implementation
+
+// Adjust the strictness based on the dot clicked
+function adjustStrictness(dotIndex) {
+    strictness = dotIndex + 1; // This sets strictness based on clicked dot. Dot 1 -> strictness 1 (0 in your desired mapping)
+
+    updateDots(); // Update the visual state of the dots
+
+    // Log adjusted strictness value to align with your desired 0-based mapping
+    console.log('Strictness level: ', strictness - 1);
+}
+
+// Update the visual state of the dots based on the current strictness
+function updateDots() {
+    for (let i = 0; i < 3; i++) {
+        let dot = document.getElementById('dot' + (i + 1));
+        if (i < strictness) {
+            dot.classList.add('filled');
+        } else {
+            dot.classList.remove('filled');
+        }
+    }
+}
+
+// Toggle the visibility of the strictness level description
+function toggleDescription() {
+    var description = document.getElementById('description');
+    description.style.display = description.style.display === 'block' ? 'none' : 'block';
+}
+
+// Initially update the dots to reflect the default state
+document.addEventListener('DOMContentLoaded', (event) => {
+    updateDots();
+});
+
 function submitEntry(entryNumber) {
     const textInput1 = document.getElementById('textInput1').value;
     const textInput2 = document.getElementById('textInput2').value;
@@ -10,7 +46,7 @@ function submitEntry(entryNumber) {
         document.getElementById('entry2').style.display = 'block';
     } else {
         // Prepare the data for sending
-        const data = { user1: textInput1, user2: textInput2, strictness: 1, category: 1 }; // Example data
+        const data = { user1: textInput1, user2: textInput2, strictness: strictness - 1, category: category }; // Example data
 
         // Show loading box and hide entry 2
         loadingBox.style.display = 'block';

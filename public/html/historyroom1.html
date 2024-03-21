@@ -254,6 +254,10 @@
 
 </div>
 
+<script>
+  var category = 2;
+</script>
+
 <h1>Strictness</h1>
   
 <!-- Strictness Box and Description -->
@@ -275,37 +279,6 @@
     </div>
   </div>
 </div>
-  <script>
-    let strictness = 0; // 0 for not strict, 1 for medium strict, 2 for very strict
-
-    function adjustStrictness(dotIndex) {
-      // Update the strictness level based on the clicked dot
-      strictness = dotIndex + 1;
-
-      // Update the dots' appearance
-      updateDots();
-      
-      // Here you can use the strictness value to determine the level of comparison strictness
-      console.log('Strictness level: ', strictness);
-    }
-
-    function updateDots() {
-      // Update the appearance of the dots based on the current strictness level
-      for (let i = 0; i < 3; i++) {
-        let dot = document.getElementById('dot' + (i + 1));
-        if (i < strictness) {
-          dot.classList.add('filled');
-        } else {
-          dot.classList.remove('filled');
-        }
-      }
-    }
-
-    function toggleDescription() {
-      var description = document.getElementById('description');
-      description.style.display = description.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
 
 <!-- Entry Box 1 -->
 <div class="entry-box" id="entry1">
@@ -335,55 +308,6 @@
   <br>
   <button onclick="restartCycle()" class="checkmark-btn">✓</button>
 </div>
-
-<!--<script>
-  function submitEntry(entryNumber) {
-    const textInput1 = document.getElementById('textInput1');
-    const textInput2 = document.getElementById('textInput2');
-    const entry1 = document.getElementById('entry1');
-    const entry2 = document.getElementById('entry2');
-    const loadingBox = document.getElementById('loadingBox');
-    const resultBox = document.getElementById('resultBox');
-
-    if (entryNumber === 1) {
-      // Hide entry 1 and show entry 2
-      entry1.style.display = 'none';
-      entry2.style.display = 'block';
-    } else {
-      // Show loading box and hide entry 2
-      loadingBox.style.display = 'block';
-      entry2.style.display = 'none';
-
-      // Simulate loading process
-      setTimeout(function() {
-        // Simulate comparison result (for demo purpose)
-        const entriesSimilar = Math.random() < 0.5; // Randomly determine similarity
-
-        // Hide loading box
-        loadingBox.style.display = 'none';
-
-        // Show result box
-        resultBox.style.display = 'block';
-
-        // Update result message
-        const similaritySpan = document.getElementById('similarity');
-        similaritySpan.textContent = entriesSimilar ? 'similar' : 'not similar';
-      }, 2000); // Simulate 2 seconds loading time (adjust as needed)
-    }
-  }
-
-  function restartCycle() {
-    const entry1 = document.getElementById('entry1');
-    const entry2 = document.getElementById('entry2');
-    const resultBox = document.getElementById('resultBox');
-
-    // Show entry 1 and hide result box
-    entry1.style.display = 'block';
-    resultBox.style.display = 'none';
-  }
-</script>
--->
-
 
 <!-- Display Result -->
 <div id="result"></div>

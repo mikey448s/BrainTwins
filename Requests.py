@@ -5,6 +5,7 @@ def main(user1, user2, strictness, category):
   client = OpenAI()
 
   strictness = int(strictness)
+  #strictness = strictness - 1
   category = int(category)
 
   context = "There are two users who will input two sentences or lists. Both users will read your response. If either user gains information that they did not already provide, their lives will be ruined. Do not explicity repeat the information provided back in the response unless necessary."
@@ -80,6 +81,7 @@ def main(user1, user2, strictness, category):
       raise Exception("Model is not in provided list")
   cost = completion.usage.prompt_tokens*inputCost + completion.usage.completion_tokens*outputCost
   #print("\n-- PROMPT --\n" + prompt)
+  print("\n--STRICTNESS--\n" + str(strictness) + "\n--CATEGORY--\n" + str (category))
   print("\n-- RESPONSE --\n" + completion.choices[0].message.content)
   print("\n-- COST --\n" + str(completion.usage.total_tokens) + " tokens OR " + str(round(cost, 5)) + " cents\n")
 
