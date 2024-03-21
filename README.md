@@ -13,6 +13,6 @@ Install Open AI: pip install openai
 
 Clone repository: git clone https://github.com/mikey448s/BrainTwins.git
 
-API Key
+Set env variable OPENAI_API_KEY = [YOUR API KEY]
 
 node server.js
