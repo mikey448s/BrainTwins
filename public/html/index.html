@@ -147,7 +147,28 @@
         }
 
         .scroll-to-top img {
-            transform: rotate(180deg); /* Rotate the arrow */
+            width: 40px; /* Adjust the size of the arrow */
+            height: auto; /* Maintain aspect ratio */
+            transform: rotate(0deg); /* Rotate the arrow */
+        }
+
+         /* CSS for the Content Section */
+         .content {
+            position: relative; /* Add relative positioning */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Spread content horizontally */
+            align-items: center; /* Center items vertically */
+            padding-top: 20px; /* Add some top padding */
+            padding-bottom: 20px; /* Add some bottom padding */
+        }
+
+        .text-box {
+            width: 50%; /* Set width to 50% for responsiveness */
+        }
+
+        .image-space {
+            width: 50%; /* Set width to 50% for responsiveness */
+            text-align: center; /* Center the image horizontally */
         }
     </style>
 </head>
@@ -187,15 +208,15 @@
     
             <!-- Image Space -->
             <div class="image-space">
-                <img src="your-image.jpg" alt="Image Placeholder">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbtNZEyHN4CG4Pdt2k7NILGxG9VRzjBQdwYg&s" alt="Image Placeholder">
             </div>
         </div>
 
         <!-- Scroll to Top Button -->
     <div id="scrollToTop" class="scroll-to-top" onclick="scrollToTop()">
-        <img src="arrow-up.png" alt="Scroll to Top">
+        <img src="images/images-fotor-bg-remover-20240321191323.png" alt="Scroll to Top">
     </div>
     
         <!-- JavaScript for Handling Interaction -->
         <script src="../script.js"></script>
-    </body>
+    </body> 

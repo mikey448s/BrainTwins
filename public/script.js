@@ -89,19 +89,20 @@ function restartCycle() {
     resultBox.style.display = 'none';
 }
 
+// JavaScript for handling scroll to top functionality
+var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {scrollFunction()};
 
-        function scrollFunction() {
-            var scrollToTopButton = document.getElementById("scrollToTop");
+function scrollFunction() {
+    var currentScrollPos = window.pageYOffset;
+    var windowHeight = window.innerHeight;
+    var bodyHeight = document.body.scrollHeight;
 
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollToTopButton.classList.add("show");
-            } else {
-                scrollToTopButton.classList.remove("show");
-            }
-        }
-
-        function scrollToTop() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
+    if (currentScrollPos < (bodyHeight - windowHeight) / 2) {
+        // Show the arrow when scrolling up before reaching the bottom half of the page
+        document.getElementById("scrollToTop").style.opacity = "1";
+    } else {
+        // Hide the arrow when scrolling down or reaching the bottom half of the page
+        document.getElementById("scrollToTop").style.opacity = "0";
+    }
+}
