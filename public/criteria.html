@@ -288,7 +288,7 @@
 <!-- Entry Box 2 (Initially Hidden) -->
 <div class="entry-box" id="entry2" style="display:none;">
   <p>Entry 2:</p>
-  <input type="text" id="textInput2" placeholder="Enter your information">
+  <textarea id="textInput2" placeholder="Enter your information" oninput="adjustTextareaHeight('textInput2')"></textarea>
   <br><br>
   <button onclick="submitEntry(2)">✓</button>
 </div>
