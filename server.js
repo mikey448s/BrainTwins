@@ -5,7 +5,7 @@ const app = express();
 const port = 4000;
 
 app.use(express.json()); // For parsing application/json
-app.use(express.static('public/html')); // For parsing application/json
+//app.use(express.static('public/html')); // For parsing application/json
 app.use(express.static('public/css')); // For parsing application/json
 app.use(express.static('public')); // For parsing application/json
 app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
