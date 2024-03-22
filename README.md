@@ -11,6 +11,8 @@ Install Python/python3
 
 Install Open AI: pip install openai
 
+Install Express: npm install express
+
 Clone repository: git clone https://github.com/mikey448s/BrainTwins.git
 
 Set env variable OPENAI_API_KEY = [YOUR API KEY]
