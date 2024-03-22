@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true })); // For parsing application/x-ww
 app.post('/submit', (req, res) => {
     const { user1, user2, strictness, category } = req.body;
 
-    const pythonProcess = spawn('python3', ['Requests.py', user1, user2, strictness, category]);
+    const pythonProcess = spawn('python', ['Requests.py', user1, user2, strictness, category]);
 
     pythonProcess.stdout.on('data', (data) => {
         // Capture the output from your Python script
