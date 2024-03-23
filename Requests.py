@@ -81,9 +81,9 @@ def main(user1, user2, strictness, category):
       raise Exception("Model is not in provided list")
   cost = completion.usage.prompt_tokens*inputCost + completion.usage.completion_tokens*outputCost
   #print("\n-- PROMPT --\n" + prompt)
-  print("\n--STRICTNESS--\n" + str(strictness) + "\n--CATEGORY--\n" + str (category))
-  print("\n-- RESPONSE --\n" + completion.choices[0].message.content)
-  print("\n-- COST --\n" + str(completion.usage.total_tokens) + " tokens OR " + str(round(cost, 5)) + " cents\n")
+  #print("\n--STRICTNESS--\n" + str(strictness) + "\n--CATEGORY--\n" + str (category))
+  print("[RESPONSE]: " + completion.choices[0].message.content)
+  #print("\n-- COST --\n" + str(completion.usage.total_tokens) + " tokens OR " + str(round(cost, 5)) + " cents\n")
 
 if __name__ == "__main__":
     user1 = sys.argv[1]  # First command line argument
