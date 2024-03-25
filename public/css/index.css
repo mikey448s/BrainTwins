@@ -1,0 +1,312 @@
+.container {
+    background-image: url('Users/crimxonguillermo/Documents/braintwins.jpeg'); /* Set the image as background of the container */
+    background-size: cover; /* Scale the background image to cover the entire container */
+    background-position: center; /* Center the background image */
+    height: 100vh; /* Ensure the container covers the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-block {
+    text-align: center;
+    background-image: url('Users/crimxonguillermo/Documents/braintwins.jpeg'); /* Specify the path to your image */
+    background-size: cover; /* Scale the background image to cover the entire title block */
+    background-position: center; /* Center the background image */
+    color: white; /* Set text color to contrast with the background image */
+    padding: 50px 0; /* Adjust padding as needed */
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Center the navigation horizontally */
+    align-items: center;
+    height: 100vh;
+}
+
+.navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navigation li {
+    margin: 0 10px; /* Adjust spacing between buttons */
+    display: inline-block; /* Change the display property to inline-block */
+    width: auto; /* Set the width to auto to allow the element to expand to fit its content */
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: flex; /* Use Flexbox to align text horizontally */
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+
+.navigation a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Style for the spaced-out button */
+.navigation ul .spaced-out {
+    margin-top: 20px; /* Adjust the margin-top to space out the button */
+}
+
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* CSS for the navigation bar */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 20px;
+    background-color: inherit;
+    font-family: inherit;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* CSS for the content section */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 50vh; /* Adjust the height of the content section */
+    padding: 20px;
+}
+
+.text-box {
+    width: 50%;
+}
+
+.image-space {
+    width: 50%;
+    text-align: right;
+}
+
+.image-space img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+body {
+    background-color: rgb(239, 239, 239);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Add relative positioning to the body for absolute positioning of elements */
+}
+
+/* CSS for the Title Block */
+.title-block {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.title {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #666;
+}
+
+/* CSS for the navigation bar */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 20px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #ddd;
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* CSS for the text box */
+.code-block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    overflow: auto; /* Add overflow property for scrolling if needed */
+}
+
+.code-block pre {
+    margin: 0;
+}
+
+/* CSS for the image insertion area */
+.image-insertion {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Add overflow property to prevent image overflow */
+}
+
+.image-insertion img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto; /* Center the image */
+}
+
+ /* CSS for the arrow button */
+ .scroll-to-bottom {
+    position: fixed;
+    bottom: 20px;
+    right: 50%; /* Center horizontally */
+    transform: translateX(50%); /* Center horizontally */
+    opacity: 1; /* Initially visible */
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.scroll-to-bottom.hide {
+    opacity: 0; /* Hide when scrolled */
+}
+
+.scroll-to-bottom img {
+    width: 40px; /* Adjust the size of the arrow */
+    height: auto; /* Maintain aspect ratio */
+    transform: rotate(0deg); /* Rotate the arrow */
+}
+
+ /* CSS for the Content Section */
+ .content {
+    position: relative; /* Add relative positioning */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Spread content horizontally */
+    align-items: center; /* Center items vertically */
+    padding-top: 125px; /* Add some top padding */
+    padding-bottom: 125px; /* Add some bottom padding */
+}
+
+.text-box {
+    width: 50%; /* Set width to 50% for responsiveness */
+}
+
+.image-space {
+    width: 50%; /* Set width to 50% for responsiveness */
+    text-align: center; /* Center the image horizontally */
+}

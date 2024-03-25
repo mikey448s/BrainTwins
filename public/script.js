@@ -90,21 +90,28 @@ function restartCycle() {
 }
 
 // JavaScript for handling scroll to top functionality
-var prevScrollpos = window.pageYOffset;
+var prevScrollpos = window.scrollY;
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    var currentScrollPos = window.pageYOffset;
+    var currentScrollPos = window.scrollY;
     var windowHeight = window.innerHeight;
     var bodyHeight = document.body.scrollHeight;
 
     if (currentScrollPos < (bodyHeight - windowHeight) / 2) {
         // Show the arrow when scrolling up before reaching the bottom half of the page
-        document.getElementById("scrollToTop").style.opacity = "1";
+        document.getElementById("scrollToBottom").style.opacity = "1";
     } else {
         // Hide the arrow when scrolling down or reaching the bottom half of the page
-        document.getElementById("scrollToTop").style.opacity = "0";
+        document.getElementById("scrollToBottom").style.opacity = "0";
     }
+}
+
+function scrollToBottom() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
 }
 
 function adjustTextareaHeight(textareaId) {
