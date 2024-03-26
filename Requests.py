@@ -8,29 +8,29 @@ def main(user1, user2, strictness, category):
   #strictness = strictness - 1
   category = int(category)
 
-  context = "There are two users who will input two sentences or lists. Both users will read your response. If either user gains information that they did not already provide, their lives will be ruined. Do not explicity repeat the information provided back in the response unless necessary."
+  context = "There are two users who will input two sentences or lists. You must process both user's ideas, and respond appropriately. Both users will read your response. If either user gains information that they did not already provide, their lives will be ruined. Do not explicitly repeat information from the users back in the response."
   prompt = ""
   models = ["gpt-3.5-turbo-0125", "gpt-4-0125-preview"]
 
   #Strictness effect
-  #strictness = 0 #scale of 0-2, 2 being the strongest, 1 by default
+  #scale of 0-2, 2 being the strongest, 2 by default
   if strictness == 0:
-    context = context + " Explaining similarity helps the users share potential common-knowledge. Explain the difference if there is not enough similarity. Max 30 word response."
+    context = context + " Explaining similarity, if it exists, helps the users share potential common-knowledge. Try to hint at what makes the two user's inputs different if there is not enough similarity WITHOUT repeating specific information that isn't in common. Max 40 word response."
   elif strictness == 1:
-    context = context + " Explaining if there is enough similarity helps the users share potential common-knowledge. If there is not enough similarity, explain that. Max 30 word response."
+    context = context + " Explaining if there is enough similarity helps the users share potential common-knowledge themselves. However, if there is not enough similarity, explain that. Max 35 word response."
   elif strictness == 2:
-    context = context + " Explain that there is not enough similarity if so. Max 30 word response."
+    context = context + " Explain that there is not enough similarity if so. Never repeat exact details unless they are guaranteed to be complete shared knowledge. Max 30 word response."
   else:
     raise Exception("Strictness fault.")
 
   #Category effect
-  #category = 1 #math = 0 // idea = 1 // criteria = 2
+  #math/sci = 0 // langarts/history = 1 // media = 2 // criteria = 3
   if category == 0:
-    prompt = prompt + "Are the two user's inputs the same? Provide the common answer in the response if they are equivalent."
+    prompt = prompt + "Are the two user's mathematical/scientific inputs the same? Provide the common answer in the response if they are equivalent."
     model = models[0]
     temp = 1.2
   elif category == 1:
-    prompt = prompt + "Are the two user's inputs the same?"
+    prompt = prompt + "Are the two user's language-arts/history inputs the same? Provide details in the significance ONLY if they are similar."
     if strictness == 0:
       model = models[0]
       temp = 1.4
@@ -41,6 +41,17 @@ def main(user1, user2, strictness, category):
       model = models[1]
       temp = 1.4
   elif category == 2:
+    prompt = prompt + "Are the two user's media inputs the same? Provide details in the significance ONLY if they are similar. Make extra careful to not mention details like characters or plot points that do not overlap as it can spoil content."
+    if strictness == 0:
+      model = models[0]
+      temp = 1.3
+    elif strictness == 1:
+      model = models[1]
+      temp = 1.3
+    elif strictness == 2:
+      model = models[1]
+      temp = 1.3
+  elif category == 3:
     prompt = prompt + "One user will provide a requirement or expectation. This can come from user 1 or 2. Determine if the other user's input meets the criteria."
     if strictness == 0:
       model = models[0]

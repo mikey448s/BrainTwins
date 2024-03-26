@@ -63,7 +63,7 @@
 
 body {
     background-color: rgb(239, 239, 239);
-    color: rgb(169, 169, 169);
+    color: rgb(41, 45, 45);
     font-family: Arial, sans-serif;
     max-width: 600px;
     margin: 0 auto;
@@ -136,7 +136,7 @@ background-color: #fff; /* Darker grey fill */
 /* Styles for the strictness container */
 .strictness-container {
 text-align: center;
-margin-top: 10px; /* Adjust margin between title block and strictness box */
+margin-top: 5px; /* Adjust margin between title block and strictness box */
 }
 
 /* Styles for the strictness box */
