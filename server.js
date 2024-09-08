@@ -91,8 +91,6 @@ const { name, email, message, cc } = req.body;
     });
 });
 
-const session = require('express-session');
-
 /* Local Host for testing
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
