@@ -31,6 +31,10 @@ app.use(express.urlencoded({ extended: true })); // For parsing application/x-ww
 app.post('/submit', (req, res) => {
     const { user1, user2, strictness, category } = req.body;
 
+    // Log session details
+    console.log('Session ID:', req.session.id);
+    console.log('Session Data:', req.session);
+    
     const pythonProcess = spawn('python', ['Requests.py', user1, user2, strictness, category]);
 
     pythonProcess.stdout.on('data', (data) => {
@@ -58,6 +62,10 @@ const transporter = nodemailer.createTransport({
 // Contact form route
 app.post('/contact', (req, res) => {
 const { name, email, message, cc } = req.body;
+
+    // Log session details
+    console.log('Session ID:', req.session.id);
+    console.log('Session Data:', req.session);
 
     // Honeypot field should be empty
     if (cc) return res.status(400).send('Spam detected!');
