@@ -13,7 +13,8 @@ app.use(session({
     secret: '09-nujabes',  
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { secure: true },
+    maxAge: 1000 * 60 * 60 * 24 // is set for 24 hours
 }));
 
 app.use(express.json()); // For parsing application/json
