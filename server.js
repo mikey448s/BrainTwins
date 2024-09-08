@@ -2,10 +2,19 @@ const express = require('express');
 const { spawn } = require('child_process');
 const nodemailer = require('nodemailer');
 const validator = require('validator');
+const session = require('express-session');
 require('dotenv').config();
 
 const app = express();
 const port = 4000;
+
+//Session information
+app.use(session({
+    secret: '09-nujabes',  
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
 
 app.use(express.json()); // For parsing application/json
 //app.use(express.static('public/html')); // For parsing application/json
@@ -83,14 +92,6 @@ const { name, email, message, cc } = req.body;
 });
 
 const session = require('express-session');
-
-app.use(session({
-    secret: '09-nujabes',  
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}));
-
 
 /* Local Host for testing
 app.listen(port, () => {
