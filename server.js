@@ -92,11 +92,11 @@ app.use(session({
 }));
 
 
-/*
+/* Local Host for testing
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
 });
-*/
+*/ //LAN/WAN for deployment
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server listening at http://0.0.0.0:${port}`);
 });
