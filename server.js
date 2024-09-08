@@ -20,8 +20,9 @@ app.post('/submit', (req, res) => {
     const pythonProcess = spawn('python', ['Requests.py', user1, user2, strictness, category]);
 
     pythonProcess.stdout.on('data', (data) => {
-        // Capture the output from your Python script
+        // Capture the output from Python script
         //res.send(data.toString());
+        req.session.apiUsed = true; //verifies API was used at least once in session
         res.json({ similarity: data.toString().trim() }); // Send JSON response
     });
 
@@ -46,6 +47,11 @@ const { name, email, message, cc } = req.body;
 
     // Honeypot field should be empty
     if (cc) return res.status(400).send('Spam detected!');
+
+    // Check session for API usage
+    if (!req.session.apiUsed) {
+        return res.status(403).send("Please give our site a try before sending us a message!");
+    }
 
     // Validate and sanitize inputs
     if (
@@ -75,6 +81,16 @@ const { name, email, message, cc } = req.body;
         res.status(200).send('Email sent successfully: ' + info.response);
     });
 });
+
+const session = require('express-session');
+
+app.use(session({
+    secret: '09-nujabes',  
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
+
 
 /*
 app.listen(port, () => {
